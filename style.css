@@ -1,0 +1,69 @@
+:root{--n:#12284a;--n2:#1F3A5F;--t:#1F7A70;--bg:#F3F6FB;--o:#F4A300}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,"Segoe UI",Roboto,sans-serif;color:#1c2433;background:radial-gradient(circle at 8% 0,#dbe7ff 0,transparent 40%),radial-gradient(circle at 92% 18%,#ffe9bf 0,transparent 35%),var(--bg);background-attachment:fixed}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--o);outline-offset:2px}
+header{position:sticky;top:0;z-index:10;background:rgba(18,40,74,.92);backdrop-filter:blur(8px);box-shadow:0 2px 14px #0003;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;flex-wrap:wrap;gap:12px}
+.logo{font:800 24px system-ui;display:flex;align-items:center;gap:8px}
+.logo b{background:var(--o);color:#1c2433;border-radius:10px;padding:2px 10px;transition:transform .2s}
+.logo:hover b{transform:rotate(-6deg) scale(1.08)}
+nav a{margin-left:20px;font-weight:600;padding-bottom:4px;border-bottom:2px solid transparent;transition:.2s}
+nav a:hover{border-color:var(--o);color:var(--o)}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 20px;display:grid;grid-template-columns:1fr 300px;gap:28px}
+main{min-width:0}
+.hero{position:relative;overflow:hidden;border-radius:24px;color:#fff;padding:48px;min-height:270px;display:flex;align-items:center;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 45%,#000));box-shadow:0 14px 34px #0003}
+.hero h1{margin:0 0 8px;font-size:46px;text-shadow:0 2px 12px #0004}
+.hero p{margin:0 0 20px;font-size:18px;opacity:.95}
+.hero>div{position:relative;z-index:1}
+.o{position:absolute;border-radius:50%;background:#ffffff22}
+.o1{width:240px;height:240px;right:-50px;top:-70px}
+.o2{width:130px;height:130px;right:200px;bottom:-50px}
+.tag{display:inline-block;background:#ffffff26;border:1px solid #fff6;padding:4px 14px;border-radius:99px;font-weight:700;font-size:13px;margin-bottom:14px}
+.btn{display:inline-block;background:var(--o);color:#1c2433;font-weight:800;border:0;border-radius:999px;padding:14px 32px;font-size:17px;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px) scale(1.04)}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.stats div{flex:1;min-width:140px;background:#fff;border-radius:14px;padding:12px 16px;font-weight:700;color:var(--n2);box-shadow:0 2px 8px #0001;text-align:center}
+.search{width:100%;margin-top:16px;padding:14px 20px;border-radius:999px;border:2px solid #cfd8e6;font-size:16px;background:#fff;transition:.2s}
+.search:focus{border-color:var(--t);box-shadow:0 0 0 4px #1f7a7022;outline:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.chip{background:#fff;border:2px solid var(--n2);color:var(--n2);border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer;transition:.2s}
+.chip:hover{transform:translateY(-2px)}
+.chip.on{background:var(--n2);color:#fff;box-shadow:0 4px 12px #1f3a5f55}
+h2{color:var(--n2);margin:30px 0 14px;display:inline-block;border-bottom:4px solid var(--o);padding-bottom:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:18px}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 3px 10px #0002;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 26px #0003}
+.th{position:relative;overflow:hidden;height:120px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 50%,#000))}
+.th span{font:800 56px system-ui;text-shadow:0 3px 10px #0005}
+.th::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#fff5 50%,transparent 70%);transform:translateX(-100%)}
+.card:hover .th::after{transform:translateX(100%);transition:transform .6s}
+.pl{position:absolute;right:10px;bottom:10px;width:36px;height:36px;border-radius:50%;background:var(--o);color:#1c2433;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:14px;opacity:0;transform:scale(.6);transition:.2s}
+.card:hover .pl{opacity:1;transform:none}
+.card p{margin:0;padding:12px 14px;font-weight:700;font-size:15px}
+.card small{display:block;color:#555;font-weight:400;margin-top:2px}
+.box{background:#fff;border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:0 2px 10px #0001}
+.box h3{margin:0 0 8px;color:var(--n2)}
+.box ol{padding-left:20px;margin:0}
+.prem{background:linear-gradient(135deg,#12284a,#4a3a8c);color:#fff}
+.prem h3{color:#fff}
+.badge{display:inline-block;background:var(--o);color:#1c2433;font:800 11px system-ui;padding:3px 10px;border-radius:99px;letter-spacing:.6px;margin-bottom:8px}
+.ad{background:#e8edf5;border:2px dashed #8793a6;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#4a5568;font-weight:700;min-height:250px;text-align:center}
+.back{display:inline-block;font-weight:700;color:var(--n2);margin-bottom:8px}
+.back:hover{color:var(--t)}
+.frame{border-radius:20px;padding:8px;background:linear-gradient(135deg,var(--n),#4a3a8c);box-shadow:0 14px 34px #0004}
+iframe{display:block;width:100%;height:540px;border:0;border-radius:14px;background:#111}
+footer{background:linear-gradient(135deg,#0c1c36,var(--n));color:#fff;text-align:center;padding:32px 24px;margin-top:28px}
+footer a{margin:0 12px;text-decoration:underline;transition:color .2s}
+footer a:hover{color:var(--o)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes flt{50%{transform:translateY(-16px)}}
+@keyframes pls{to{box-shadow:0 0 0 20px #F4A30000}}
+@media(prefers-reduced-motion:no-preference){
+.hero>div{animation:up .6s both}
+.o1{animation:flt 6s ease-in-out infinite}
+.o2{animation:flt 5s ease-in-out infinite reverse}
+.hero .btn{box-shadow:0 0 0 0 #F4A300aa;animation:pls 1.8s infinite}
+.card{animation:up .5s both;animation-delay:calc(var(--i)*70ms)}
+.stats div,.box{animation:up .6s both}}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}.hero{padding:28px}.hero h1{font-size:30px}iframe{height:480px}}

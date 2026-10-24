@@ -1,0 +1,14 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><body style="margin:0;background:#111;color:#fff;font:16px system-ui;text-align:center"><canvas id=c width=400 height=400 style="max-width:100%;background:#1b2a3a"></canvas><div id=s>Score 0 · Arrow keys or swipe</div><script>
+const c=document.getElementById('c'),x=c.getContext('2d'),N=20,S=20,st=document.getElementById('s');let sn,d,f,sc,t=0;
+function nf(){return{x:Math.random()*N|0,y:Math.random()*N|0}}
+function init(){sn=[{x:10,y:10}];d={x:1,y:0};sc=0;f=nf();clearInterval(t);t=setInterval(step,110)}
+function step(){const h={x:sn[0].x+d.x,y:sn[0].y+d.y};
+if(h.x<0||h.y<0||h.x>=N||h.y>=N||sn.some(p=>p.x==h.x&&p.y==h.y)){parent.postMessage({score:sc},'*');st.textContent='Game over: '+sc+' · Space or tap to restart';clearInterval(t);t=0;return}
+sn.unshift(h);if(h.x==f.x&&h.y==f.y){sc++;f=nf();st.textContent='Score '+sc}else sn.pop();
+x.fillStyle='#1b2a3a';x.fillRect(0,0,400,400);x.fillStyle='#F4A300';x.fillRect(f.x*S,f.y*S,S-2,S-2);x.fillStyle='#2ec4a6';sn.forEach(p=>x.fillRect(p.x*S,p.y*S,S-2,S-2))}
+function go(a,b){if(a!=-d.x||b!=-d.y)d={x:a,y:b}}
+onkeydown=e=>{const k={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(k){go(...k);e.preventDefault()}if(e.key==' '&&!t)init()};
+let p0;c.ontouchstart=e=>{p0=e.touches[0];if(!t)init()};
+c.ontouchend=e=>{const q=e.changedTouches[0],dx=q.clientX-p0.clientX,dy=q.clientY-p0.clientY;Math.abs(dx)>Math.abs(dy)?go(dx>0?1:-1,0):go(0,dy>0?1:-1)};
+init()
+</script>

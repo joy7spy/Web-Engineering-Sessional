@@ -1,0 +1,8 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><body style="margin:0;background:#111;color:#fff;font:16px system-ui;text-align:center"><div id=g style="display:grid;grid-template-columns:repeat(4,70px);gap:8px;justify-content:center;margin:16px"></div><div id=s>Find all pairs</div><script>
+let m=0,o=[],done=0;const sy='★●▲■◆♥☀✿'.split(''),dk=[...sy,...sy].sort(()=>Math.random()-.5),g=document.getElementById('g'),s=document.getElementById('s');
+dk.forEach((v,i)=>{const b=document.createElement('button');b.style.cssText='height:70px;font-size:30px;border:0;border-radius:12px;background:#6B4FA0;color:#fff;cursor:pointer';b.setAttribute('aria-label','Card '+(i+1));
+b.onclick=()=>{if(o.length>1||b.textContent)return;b.textContent=v;b.style.background='#fff';b.style.color='#222';o.push(b);
+if(o.length==2){m++;s.textContent='Moves '+m;
+if(o[0].textContent==v){o=[];if(++done==8){const sc=Math.max(0,200-m*5);s.textContent='Done in '+m+' moves. Score '+sc;parent.postMessage({score:sc},'*')}}
+else setTimeout(()=>{o.forEach(q=>{q.textContent='';q.style.background='#6B4FA0'});o=[]},700)}};g.append(b)})
+</script>

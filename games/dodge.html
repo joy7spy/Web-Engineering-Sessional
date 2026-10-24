@@ -1,0 +1,14 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><body style="margin:0;background:#111;color:#fff;font:16px system-ui;text-align:center"><canvas id=c width=400 height=500 style="max-width:100%;background:#1b2a3a"></canvas><div id=s>Move with arrow keys or drag</div><script>
+const c=document.getElementById('c'),x=c.getContext('2d'),st=document.getElementById('s');let px=180,bl=[],sc=0,run=0,k={};
+function init(){px=180;bl=[];sc=0;run=1;loop()}
+function loop(){if(!run)return;x.fillStyle='#1b2a3a';x.fillRect(0,0,400,500);
+if(k.ArrowLeft)px-=6;if(k.ArrowRight)px+=6;px=Math.max(0,Math.min(360,px));
+if(Math.random()<.05+sc/6000)bl.push({x:Math.random()*360,y:-40,v:3+Math.random()*2+sc/800});
+bl.forEach(b=>b.y+=b.v);bl=bl.filter(b=>b.y<500);
+x.fillStyle='#F4A300';bl.forEach(b=>x.fillRect(b.x,b.y,40,40));x.fillStyle='#2ec4a6';x.fillRect(px,450,40,40);
+if(bl.some(b=>b.y+40>450&&b.y<490&&b.x+40>px&&b.x<px+40)){run=0;parent.postMessage({score:sc},'*');st.textContent='Game over: '+sc+' · Space or tap to restart';return}
+sc++;st.textContent='Score '+sc;requestAnimationFrame(loop)}
+onkeydown=e=>{k[e.key]=1;if(e.key==' '&&!run)init();if(e.key.startsWith('Arrow'))e.preventDefault()};onkeyup=e=>k[e.key]=0;
+c.onpointermove=e=>{const r=c.getBoundingClientRect();px=(e.clientX-r.left)*400/r.width-20};c.onpointerdown=()=>{if(!run)init()};
+init()
+</script>
